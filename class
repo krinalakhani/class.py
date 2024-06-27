@@ -1,0 +1,174 @@
+#find area of Rectangle(01)
+class Area:
+    def __init__(a, length, width):
+        a.length = length
+        a.width = width
+
+    def area(a, length, width):
+        return length * width
+
+length=float(input("l: "))
+width=float(input("w: "))  
+p2 = Area(length, width)
+print("Area:", p2.area(length, width))
+
+#append, delete and display element of list in class(02)
+class ListOperations:
+    def __init__(self):
+        self.my_list = []
+
+    def append_element(self, element):
+        self.my_list.append(element)
+
+    def delete_element(self, element):
+        if element in self.my_list:
+            self.my_list.remove(element)
+        else:
+            print("Element not found in the list.")
+
+    def display_elements(self):
+        # if not self.my_list:
+        #     print("List is empty.")
+        # else:
+        #     print("Elements in the list:")
+        #     for element in self.my_list:
+        #         print(element)
+        return self.my_list
+
+list_ops = ListOperations()
+
+
+# list_ops.append_element(10)
+# list_ops.append_element(20)
+# list_ops.append_element(30)
+list_ops.append_element(input("a:"))
+list_ops.append_element(input("b:"))
+list_ops.append_element(input("c:"))
+
+# list_ops.display_elements()
+elements = list_ops.display_elements()
+print("Elements in the list:", elements) 
+
+# list_ops.delete_element(20)
+list_ops.delete_element(input("d:"))
+
+# list_ops.display_elements()
+elements = list_ops.display_elements()
+print("Elements in the list:", elements) 
+
+#find area and perimeter of circle(03)
+class Circle:
+    def __init__(n,radius):
+        n.radius = radius
+    def area(n,radius):
+        return (22/7)*radius**2
+    def perimeter(n,radius):
+        return 2*(22/7)*radius
+radius=float(input("r: "))    
+circle=Circle(radius)
+# print("Area:",circle.area(radius))
+# print("Perimeter:",circle.perimeter(radius))
+print(f"Area: {circle.area(radius):.2f}")
+print(f"Perimeter: {circle.perimeter(radius):.2f}")
+
+#basic calculater(04)
+class Number:
+    def __init__(num,num1=0,num2=0,num3=0):
+        num.num1 = num1
+        num.num2 = num2
+        num.num3=  num3
+    
+    def add(n,num1,num2,num3):
+        return num1+num2+num3
+
+    def div(n,num1,num2):
+        return num1/num2
+    
+    def multi(n, num1, num2, num3):
+        return num1*num2*num3
+    
+    def sub(n, num1, num2, num3):
+        return num1-num2-num3
+
+p1 = Number()
+#p1.add(int(input("a: ")), int(input("b: ")), int(input("c: ")))
+
+i="yes"
+while(i=="yes"):
+    print("kal ku lator")
+    op=input("enter + , - ,* , /: ")
+
+    match op:
+
+        case "+":
+            # print(p1.add(int(input("a: ")), int(input("b: ")), int(input("c: "))))
+            add = int(input("How many number do you want to add: "))
+            sum=0
+            for i in range(add):
+                num = int(input("num: "))
+                sum += num
+
+            print("sum:",sum)
+
+        case "-":
+            print(p1.sub(int(input("a: ")), int(input("b: ")), int(input("c: "))))
+            # sub = int(input("How many number do you want to sub: "))
+            # s=0
+            # for i in range(sub):
+            #     num = int(input("num: "))
+            #     s -= num
+
+            # print("Sub:",s)
+
+        case "*":
+            # print(p1.multi(int(input("a: ")), int(input("b: ")), int(input("c: "))))
+            multi = int(input("How many number do you want to multi: "))
+            m=1
+            for i in range(multi):
+                num = int(input("num: "))
+                m *= num
+
+            print("Multi:",m)
+
+        case "/":
+            print(p1.div(int(input("a: ")), int(input("b: "))))
+
+    i=input("do you want to continue?(yes/no): ")
+
+# get all possible subset in set
+class Subset:
+    def __init__(a):
+        a.ans = [[]]
+    def get_ss(a, num):
+        for n in num:
+            a.ans += [x + [n] for x in a.ans]
+            return a.ans
+num = set(input("set: "))
+subset = Subset()
+result=subset.get_ss(num)
+print(result)
+
+class Subset:
+    def __init__(self):
+        self.ans = [[]]
+
+    def get_ss(self, num):
+        for n in num:
+            self.ans += [x + [n] for x in self.ans]
+        return self.ans
+
+# Prompting the user for the input set
+num = set(input("set: "))
+
+# Creating an instance of Subset
+subset = Subset()
+
+# Getting the subsets and printing them
+result = subset.get_ss(num)
+print(result)
+
+import datetime
+x=datetime.datetime.now()
+print(x)
+print(x.year)
+print(x.strftime("%A"))
